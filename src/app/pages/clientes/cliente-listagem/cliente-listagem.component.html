@@ -1,0 +1,74 @@
+<!-- <div class="container fluid"> -->
+<div class="containercustom">
+  <div class="centralizartexto">
+    <h2>Listagem de Clientes</h2>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th scope="col">Nome</th>
+        <th scope="col">Data de Nascimento</th>
+        <th scope="col">Cpf</th>
+        <th scope="col">Email</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Telefone</th>
+
+        <th scope="col">Situação</th>
+
+        <th>
+          <!-- <div>
+            <a [routerLink]="['/cliente/cadastro']" class="btn btn-success"
+              >Adicionar</a
+            >
+          </div> -->
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of listaClientes">
+        <td><app-botao-cliente-view [routerLink]="['/cliente/viewcliente',c.id]" title="Detalhes do cliente"></app-botao-cliente-view></td>
+        <td>{{ c.nome }}</td>
+        <td>{{ c.dataNascimento | dateFormat }}</td>
+        <td>{{ c.cpf | cpf }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.celular | telefone }}</td>
+        <td>{{ c.telefone | telefoneFixo }}</td>
+
+        <td >{{ c.situacao }}</td>
+
+        <td>
+          <div class="botoes">
+
+            <app-botao-editar
+            [routerLink]="['/cliente/cadastro/', c.id]" class="botao" title="Editar"
+            *ngIf="tipoPerfilAdmin"
+            ></app-botao-editar>
+
+
+
+
+            <app-botao-excluir (click)="this.confirmarExcluir(c.id)" class="botao" title="Excluir"
+            *ngIf="tipoPerfilAdmin"
+
+            ></app-botao-excluir>
+          </div>
+
+          <!-- <a
+            id="editar"
+            class="btn btn-warning"
+            [routerLink]="['/cliente/cadastro/', c.id]"
+            >Editar</a
+          > -->
+          <!-- <a
+            id="excluir"
+            class="btn btn-danger"
+            (click)="this.confirmarExcluir(c.id)"
+            >Excluir</a
+          > -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

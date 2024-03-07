@@ -1,0 +1,37 @@
+<div class="containercustom">
+
+  <form
+  [formGroup]="this.formulario"
+    (ngSubmit)="this.submeterForm()"  >
+
+      <div class="form-group col-sm-12 col-md-12 col-lg-12">
+        <label class="form-control-label label-obrigatorio"
+          >Observação de {{cliente.nome}}</label
+        >
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="obstxt"></textarea>
+          <label for="floatingTextarea">Digite uma observação</label>
+        </div>
+
+
+
+      </div>
+
+      <!-- botoes>> -->
+      <div class="form-group col-sm-12 action-buttons">
+        <a
+          class="btn btn-secondary float-left"
+          [routerLink]="['/cliente/listagem']"
+          queryParamsHandling="preserve"
+          >Voltar</a
+        >
+        <button type="submit" class="btn btn-primary float-right"
+
+        >
+          Salvar
+        </button>
+        <!-- <<botoes -->
+      </div>
+  </form>
+</div>
+

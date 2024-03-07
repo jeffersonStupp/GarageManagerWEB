@@ -1,0 +1,58 @@
+
+<div class="containercustom">
+  <h2 class="centralizar-texto">Listagem de usuários</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nome usuário</th>
+        <th>E-mail</th>
+        <th>Ativo</th>
+        <th>Tipo</th>
+
+        <th>
+          <div>
+            <a
+              class="btn btn-success"
+              [routerLink]="['/usuario/cadastro']"
+              queryParamsHandling="preserve"
+              >Adicionar</a
+            >
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of this.listaUsuarios">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nomeUsuario }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.ativo ? "Sim" : "Não" }}</td>
+        <td>
+          {{ usuario.tipo == "administrador" ? "Administrador" : "Usuário" }}
+        </td>
+        <td>
+          <!-- Botão de Edição -->
+          <a
+            class="btn btn-primary"
+            [routerLink]="['/usuario/cadastro/', usuario.id]"
+            >Editar</a
+          >
+
+          <!-- Botão para alterar status -->
+          <a
+            class="btn"
+            [ngClass]="{
+              'btn-danger': usuario.ativo,
+              'btn-warning': !usuario.ativo
+            }"
+            (click)="this.alterarStatus(usuario)"
+            >{{ usuario.ativo ? "Desativar" : "Ativar" }}</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

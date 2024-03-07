@@ -1,0 +1,78 @@
+/* .card{
+
+background-color: #bbb8b8;
+box-shadow: -1px 3px 8px   rgb(73, 75, 75);
+margin: 10px;
+flex: 0 1 calc(20% - 10px);
+max-width: calc(33.33% - 20px);
+
+}
+.containercustom{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+.material-symbols-outlined{
+  font-size: 60px;
+}
+.card-footer{
+
+  border: none;
+  background-color: #bbb8b8;
+  margin-bottom: none;
+}
+.btn{
+  position: relative;
+margin-bottom: none;
+} */
+
+.card {
+  background-color: #bbb8b8;
+  box-shadow: -1px 3px 8px rgb(73, 75, 75);
+  margin: 10px;
+  flex: 0 1 calc(20% - 10px);
+  max-width: calc(33.33% - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribui espaço entre o material-symbols-outlined e o texto */
+}
+
+.containercustom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.material-symbols-outlined {
+  font-size: 60px;
+  margin-bottom: 15px; /* Adiciona margem inferior para o ícone */
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-footer {
+  border: none;
+  background-color: #bbb8b8;
+  margin-top: auto; /* Move o card-footer para a parte inferior do card */
+  display: flex;
+  justify-content: center; /* Centraliza os elementos dentro do card-footer */
+}
+
+.btn {
+  position: relative;
+  margin-top: 15px; /* Adiciona margem superior para o botão */
+  align-self: center; /* Centraliza o botão dentro do card-footer */
+}
+.card-header
+{
+  text-align: center;
+  align-items: center;
+  border: none;
+  background-color: #bbb8b8;
+}

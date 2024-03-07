@@ -1,0 +1,56 @@
+<div class="toolbar" role="banner">
+  <img
+    class="logo"
+    width="200"
+    alt="Angular Logo"
+    src="\assets\logo.png"
+    [routerLink]="['principal']"
+  />
+
+  <a
+    [routerLink]="['/cliente/cadastro']"
+
+    title="Cadastro"
+    >Cadastro</a
+  >
+  <a
+    [routerLink]="['/cliente/listagem']"
+    title="Lista de clientes"
+    >Listagem de clientes</a
+  >
+
+  <div class="spacer">
+    <div class="abalogado">
+      <p>{{ saudacao }} {{ nomeusuario }}</p>
+    </div>
+
+    <div class="icones">
+      <div class="icone"*ngIf="tipoPerfilAdmin">
+        <a
+          [routerLink]="['/usuario/dashboard']"
+
+          title="configuração"
+        >
+          <span class="material-symbols-outlined">dashboard</span>
+        </a>
+
+        <div class="txt">Painel de controle</div>
+      </div>
+
+      <div class="icone">
+        <a
+        title="Sair"
+          [routerLink]="[]"
+          (click)="logout()"
+        >
+          <span class="material-symbols-outlined">logout</span>
+        </a>
+
+        <div class="txt">sair</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>

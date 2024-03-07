@@ -1,0 +1,107 @@
+<div class="containercustom">
+  <h2 class="centralizar-texto">Cadastro de usuário</h2>
+
+  <form
+    [formGroup]="this.formulario"
+    (ngSubmit)="this.submeterForm()"
+    novalidate
+    [ngClass]="{ submitted: this.formSubmetido }"
+  >
+    <div class="row">
+      <div class="form-group col-sm-12 col-md-12 col-lg-6">
+        <label class="form-control-label label-obrigatorio"
+          >Nome de usuário</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Preencha um nome de usuário"
+          formControlName="nomeUsuario"
+        />
+        <app-validator
+          [formSubmitted]="this.formSubmetido"
+          [errors]="this.formulario?.get('nomeUsuario')?.errors"
+        ></app-validator>
+      </div>
+
+      <div class="form-group col-sm-12 col-md-12 col-lg-6">
+        <label class="form-control-label label-obrigatorio">E-mail</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Preencha um e-mail"
+          formControlName="email"
+        />
+        <app-validator
+          [formSubmitted]="this.formSubmetido"
+          [errors]="this.formulario?.get('email')?.errors"
+        ></app-validator>
+      </div>
+
+      <div class="form-group col-sm-12 col-md-12 col-lg-6">
+        <label class="form-control-label label-obrigatorio">Senha</label>
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Preencha uma senha"
+          formControlName="senha"
+        />
+        <app-validator
+          [formSubmitted]="this.formSubmetido"
+          [errors]="this.formulario?.get('senha')?.errors"
+        ></app-validator>
+      </div>
+
+      <!-- <div class="form-group col-sm-12 col-md-12 col-lg-6">
+        <label class="form-control-label label-obrigatorio">Ativo</label>
+        <input
+          type="checkbox"
+          class="form-control"
+          value="ativo"
+          formControlName="ativo"
+        /> -->
+
+      <div class="form-group col-sm-12 col-md-12 col-lg-6">
+        <label class="form-control-label label-obrigatorio"
+          >Tipo de usuário</label
+        >
+        <select class="form-control" id="tipo" formControlName="tipo">
+          <option value="usuario">Usuário</option>
+          <option value="administrador">Administrador</option>
+        </select>
+        <app-validator
+          [formSubmitted]="this.formSubmetido"
+          [errors]="this.formulario?.get('tipo')?.errors"
+        ></app-validator>
+      </div>
+
+      <div class="form-check form-check-reverse">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="ativo"
+          formControlName="ativo"
+          checked
+        />
+        <label class="form-check" for="flexCheckChecked"> Ativo </label>
+
+        <app-validator
+          [formSubmitted]="this.formSubmetido"
+          [errors]="this.formulario?.get('ativo')?.errors"
+        ></app-validator>
+      </div>
+
+      <div class="form-group col-sm-12 action-buttons">
+        <a
+          class="btn btn-secondary float-left"
+          [routerLink]="['/usuario/listagem']"
+          queryParamsHandling="preserve"
+          >Voltar</a
+        >
+        <button type="submit" class="btn btn-primary float-right">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

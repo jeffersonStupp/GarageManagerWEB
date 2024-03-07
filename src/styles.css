@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+ *{font-family:'Cambria, Cochin, Georgia, Times, 'Times New Roman', serif'}
+
+ .containercustom{
+  width: 90vw;
+  margin: auto;
+  padding-top:150px;
+}
+.toast-top-left{
+  margin-left: 90px;
+
+}
+
+
+
+
+
+

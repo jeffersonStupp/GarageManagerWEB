@@ -1,0 +1,28 @@
+.container {
+padding-top: 100px;
+padding-bottom: 100px;
+
+}
+
+.corpo {
+  width: 100%;
+  margin-top: 20px;
+}
+
+h2 {
+  color: #333;
+}
+th{
+  width: 25%;
+}
+td{
+  width: 75%;
+}
+.btn{
+  margin:2px
+}
+#obsred{
+  color: red;
+  font-weight: bolder;
+  word-wrap:break-word;
+}

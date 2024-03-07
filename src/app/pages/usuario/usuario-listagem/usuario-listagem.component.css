@@ -1,0 +1,52 @@
+.containercustom{
+  padding-top: 40px;
+  margin-top: 100px;
+}
+
+
+
+.centralizar-texto {
+  text-align: center;
+}
+
+
+.btn-success{
+  width: 155px;
+  border-radius: 8px;
+
+  }
+  .btn-primary{
+  border-radius: 8px 0px 0px 8px ;
+
+  }
+  .btn-danger{
+  border-radius: 0px 8px 8px 0px ;
+  width: 90px;
+
+
+
+  }
+  .btn-warning{
+  border-radius: 0px 8px 8px 0px ;
+  width: 90px;
+  }
+
+/* #editar{
+  border-radius: 8px 0px 0px 8px ;
+  margin-right: 0px;
+  height: 40px;
+  text-align: center;
+
+
+}
+
+#excluir{
+  margin-left: 0px;
+  border-radius: 0px 8px 8px 0px;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+
+
+}
+ */
