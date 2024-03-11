@@ -1,31 +1,4 @@
-/* .card{
 
-background-color: #bbb8b8;
-box-shadow: -1px 3px 8px   rgb(73, 75, 75);
-margin: 10px;
-flex: 0 1 calc(20% - 10px);
-max-width: calc(33.33% - 20px);
-
-}
-.containercustom{
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-}
-.material-symbols-outlined{
-  font-size: 60px;
-}
-.card-footer{
-
-  border: none;
-  background-color: #bbb8b8;
-  margin-bottom: none;
-}
-.btn{
-  position: relative;
-margin-bottom: none;
-} */
 
 .card {
   background-color: #bbb8b8;
@@ -76,3 +49,4 @@ margin-bottom: none;
   border: none;
   background-color: #bbb8b8;
 }
+

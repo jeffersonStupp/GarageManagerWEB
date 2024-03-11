@@ -28,7 +28,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let c of listaClientes">
-          <td><app-botao-cliente-view [routerLink]="['/cliente/pendentesView',c.id]" title="Clientes pendentes"></app-botao-cliente-view></td>
+          <td><app-botao-cliente-view [routerLink]="['/cliente/bloqueadosView',c.id]" title="Clientes bloqueados"></app-botao-cliente-view></td>
           <td>{{ c.nome }}</td>
           <td>{{ c.dataNascimento | dateFormat }}</td>
           <td>{{ c.cpf | cpf }}</td>

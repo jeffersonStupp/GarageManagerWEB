@@ -3,7 +3,8 @@ import Cliente from 'src/app/models/cliente.model';
 import { AlertService } from 'src/app/services/alert.service';
 import { AutenticacaoService } from 'src/app/services/autenticacao.service';
 import { ClienteService } from 'src/app/services/cliente.service';
-
+import { Router } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -17,7 +18,9 @@ export class ClientesPendentesComponent implements OnInit{
   constructor(
     public clienteservice: ClienteService,
     public alertService: AlertService,
-    public autenticacaoService: AutenticacaoService
+    public autenticacaoService: AutenticacaoService,
+    public router: Router,
+    private cdr: ChangeDetectorRef,
   ) {}
   public ngOnInit(): void {
     document.title = 'Clientes Pendentes';
@@ -29,6 +32,15 @@ export class ClientesPendentesComponent implements OnInit{
       (resposta) => {
         if (resposta != null) {
           this.listaClientes = resposta;
+
+          if(this.listaClientes.length<1){
+
+            this.router.navigate(['usuario/dashboard']);
+
+            this.cdr.detectChanges();
+
+          }
+
         } else {
           this.alertService.showToastrError('Erro na API');
         }

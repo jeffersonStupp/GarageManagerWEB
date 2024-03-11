@@ -12,20 +12,17 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-clientes-pendentes-view',
   templateUrl: './clientes-pendentes-view.component.html',
-  styleUrls: ['./clientes-pendentes-view.component.css']
+  styleUrls: ['./clientes-pendentes-view.component.css'],
 })
 export class ClientesPendentesViewComponent implements OnInit {
   public id: number = null;
   public cliente: Cliente;
 
-
   public ngOnInit(): void {
     document.title = 'Detalhes do cliente';
 
-
     this.id = this.activateRouter.snapshot.params['id'];
     this.obterCliente();
-
   }
   constructor(
     public activateRouter: ActivatedRoute,
@@ -34,14 +31,12 @@ export class ClientesPendentesViewComponent implements OnInit {
     public router: Router,
     private cdr: ChangeDetectorRef,
     public autenticacaoService: AutenticacaoService
-
   ) {}
   public obterCliente() {
     this.clienteservice.obterPorId(this.id).subscribe(
       (resposta) => {
         if (resposta != null) {
           this.cliente = resposta;
-
         } else {
           this.alertService.showToastrError('Erro na API');
         }
@@ -57,10 +52,8 @@ export class ClientesPendentesViewComponent implements OnInit {
   public chamarApiParahomologar(id: number) {
     this.clienteservice.homologarCliente(this.cliente).subscribe(
       (resposta) => {
-
-        window.location.reload();
-        this.router.navigate(['/usuario/viewcliente', this.cliente.id]);
-
+        
+        this.router.navigate(['usuario/dashboard']);
 
         this.cdr.detectChanges();
         this.alertService.showToastrSuccess('Cliente homologado');
@@ -71,24 +64,43 @@ export class ClientesPendentesViewComponent implements OnInit {
         this.alertService.showToastrError('Erro na requisição', mensagemErro);
       }
     );
-    }
-    public chamarApiParaBloquear(id: number) {
-      this.clienteservice.bloquearCliente(this.cliente).subscribe(
-        (resposta) => {
+  }
+  public chamarApiParaExcluir(id: number) {
+    this.clienteservice.excluir(this.cliente.id).subscribe(
+      (resposta) => {
 
-          window.location.reload();
-          this.router.navigate(['/usuario/viewcliente', this.cliente.id]);
+        this.router.navigate(['cliente/pendentes']);
+
+        this.cdr.detectChanges();
+        this.alertService.showToastrSuccess('Homologação cancelada');
+      },
+      (exception) => {
+        let mensagemErro =
+          typeof exception?.error == 'string' ? exception?.error : '';
+        this.alertService.showToastrError('Erro na requisição', mensagemErro);
+      }
+    );
+  }
+
+  public confirmarExcluir(id: number) {
+    this.alertService.alertConfirm({
+      title: 'Atenção',
+      text: 'Ao prosseguir, o registro será excluído sem homologação. Confirma a ação?',
+      confirmButtonText: 'Sim',
+      confirmButtonColor: 'green',
+      showCancelButton: true,
+      cancelButtonText: 'Não',
+      cancelButtonColor: 'red',
+      fn: () => {
+        this.chamarApiParaExcluir(this.cliente.id);
+      },
+      fnCancel: () => {
+        this.alertService.showToastrInfo('Operação cancelada!');
+      },
+    });
+  }
 
 
-          this.cdr.detectChanges();
-          this.alertService.showToastrSuccess('Cliente homologado');
-        },
-        (exception) => {
-          let mensagemErro =
-            typeof exception?.error == 'string' ? exception?.error : '';
-          this.alertService.showToastrError('Erro na requisição', mensagemErro);
-        }
-      );
 
-}
+
 }

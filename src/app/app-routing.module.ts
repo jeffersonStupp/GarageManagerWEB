@@ -14,6 +14,9 @@ import { NovaObsComponent } from './pages/clientes/nova-obs/nova-obs.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ClientesPendentesComponent } from './pages/clientes/clientes-pendentes/clientes-pendentes.component';
 import { ClientesPendentesViewComponent } from './pages/clientes/clientes-pendentes-view/clientes-pendentes-view.component';
+import { ClientesBloqueadosComponent } from './pages/clientes/clientes-bloqueados/clientes-bloqueados.component';
+import { ClientesBloqueadosViewComponent } from './pages/clientes/clientes-bloqueados-view/clientes-bloqueados-view.component';
+import { PaginaDeConfiguracaoComponent } from './pages/parametros/pagina-de-configuracao/pagina-de-configuracao.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/principal', pathMatch: 'full' },
@@ -32,6 +35,8 @@ const routes: Routes = [
           { path: 'cadastro', component: UsuarioCadastroComponent },
           { path: 'cadastro/:id', component: UsuarioCadastroComponent },
           { path: 'dashboard', component: DashboardComponent },
+          { path: 'configuracao', component: PaginaDeConfiguracaoComponent },
+
           ],
       },
       {
@@ -44,6 +49,8 @@ const routes: Routes = [
           { path: 'clienteOBS/:id', component: NovaObsComponent },
           { path: 'pendentes', component: ClientesPendentesComponent },
           {path: 'pendentesView/:id',component: ClientesPendentesViewComponent,},
+          {path: 'bloqueados',component: ClientesBloqueadosComponent,},
+          {path: 'bloqueadosView/:id',component: ClientesBloqueadosViewComponent,},
 
         ],
       },

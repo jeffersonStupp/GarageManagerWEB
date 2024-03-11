@@ -1,0 +1,16 @@
+.centralizar-texto {
+  text-align: center;
+}
+.form-check{
+  position: relative;
+  margin-right: 8px;
+
+}
+hr{
+  border-top: 2px solid rgb(0, 0, 0);}
+section{margin-top: 40px;}
+
+.check{
+  padding-left: 0;
+}
+

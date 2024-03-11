@@ -15,15 +15,22 @@ export class DashboardComponent implements OnInit {
   public id: number = null;
   public cliente: Cliente;
   public listaClientesPendentes: Cliente[] = [];
-public contagemDePendentes:number = 0
-public textoContador:string = "";
-public mostrarContador:boolean = false;
+public contagemDePendentes:number = 0;
+public textoContadorPendentes:string = "";
+public mostrarContadorPendentes:boolean = false;
+
+public listaClientesBloqueados: Cliente[]=[];
+public contagemDeBloqueados:number=0;
+public textoContadorBloqueados:string = "";
+public mostrarContadorBloqueados:boolean = false;
+
 
   public ngOnInit(): void {
     document.title = 'Dashboard';
 
     this.id = this.activateRouter.snapshot.params['id'];
-    this.obterClientesApi();
+    this.obterClientesPendentes();
+    this.obterClientesBloqueados();
 
 
 
@@ -37,36 +44,31 @@ public mostrarContador:boolean = false;
     public clienteservice: ClienteService,
     public alertService: AlertService,
     public router: Router,
-    private cdr: ChangeDetectorRef,
+
     public autenticacaoService: AutenticacaoService
 
     ) {}
 
-    public obterClientesApi() {
+    public obterClientesPendentes() {
       this.clienteservice.obterTodosPendentes().subscribe(
         (resposta) => {
           if (resposta != null) {
             this.listaClientesPendentes = resposta;
             this.contagemDePendentes=this.listaClientesPendentes.length
 
-
-
             if(this.contagemDePendentes <= 0){
-              this.textoContador = " Nenhum cliente requer aprovação";}
-              this.mostrarContador = false
+              this.textoContadorPendentes = " Nenhum cliente requer aprovação";}
+              this.mostrarContadorPendentes = false
 
               if(this.contagemDePendentes>1){
-                this.textoContador=" novos clientes cadastrados com autorizações pendentes para homologação. Ação necessária do administrador para aprovação.";
-                this.mostrarContador = true
+                this.textoContadorPendentes=" novos clientes cadastrados com autorizações pendentes para homologação. Ação necessária do administrador para aprovação.";
+                this.mostrarContadorPendentes = true
               }
               if(this.contagemDePendentes == 1){
-                this.textoContador=" novo cliente cadastrado com autorização pendente para homologação. Ação necessária do administrador para aprovação."
-                this.mostrarContador = true
+                this.textoContadorPendentes=" novo cliente cadastrado com autorização pendente para homologação. Ação necessária do administrador para aprovação."
+                this.mostrarContadorPendentes = true
               }
           }
-
-
-
 
        else {
         this.alertService.showToastrError('Erro na API');
@@ -80,6 +82,46 @@ public mostrarContador:boolean = false;
     );
   }
 
+
+
+
+
+
+
+
+
+  public obterClientesBloqueados() {
+    this.clienteservice.obterTodosBloqueados().subscribe(
+      (resposta) => {
+        if (resposta != null) {
+          this.listaClientesBloqueados = resposta;
+          this.contagemDeBloqueados=this.listaClientesBloqueados.length
+
+          if(this.contagemDeBloqueados <= 0){
+            this.textoContadorBloqueados = " Nenhum cliente bloqueado";}
+            this.mostrarContadorBloqueados = false
+
+            if(this.contagemDeBloqueados>1){
+              this.textoContadorBloqueados=" clientes cadastrados estão com seus cadastros bloqueados";
+              this.mostrarContadorBloqueados = true
+            }
+            if(this.contagemDeBloqueados == 1){
+              this.textoContadorBloqueados=" cliente cadastrado está com seu cadasto bloqueado"
+              this.mostrarContadorBloqueados = true
+            }
+        }
+
+     else {
+      this.alertService.showToastrError('Erro na API');
+    }
+  },
+  (exception) => {
+    let mensagemErro =
+    typeof exception?.error == 'string' ? exception?.error : '';
+    this.alertService.showToastrError('Erro na requisição', mensagemErro);
+  }
+  );
+}
 
 
 

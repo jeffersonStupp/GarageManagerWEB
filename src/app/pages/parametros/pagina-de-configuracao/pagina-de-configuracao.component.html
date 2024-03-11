@@ -1,0 +1,85 @@
+<div class="containercustom">
+  <h2 class="centralizar-texto">Painel de Configuração</h2>
+
+  <form
+  [formGroup]="this.formulario"
+    (ngSubmit)="this.submeterForm()"
+    novalidate
+    [ngClass]="{ submitted: this.formSubmetido }">
+
+
+<section>
+
+  <div class="row">
+    <h5>Configurações De Cadastro</h5>
+      <hr class="form-group col-sm-12 col-md-12" />
+      <div class="form-group col-sm-12 col-md-12 col-lg-6">
+        <label class="form-control-label label-obrigatorio"
+        >Idade mínima permitida para cadastro </label
+        >
+        <input
+        type="number"
+        class="form-control"
+        placeholder="Preencha a idade minima permitida"
+        formControlName="idadeMinimaCadastro"
+        />
+      </div>
+
+      <div class="form-group col-sm-12 col-md-12 col-lg-6">
+        <label class="form-control-label label-obrigatorio">Idade máxima permitida para cadastro</label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Preencha a idade máxima permitida"
+          formControlName="idadeMaximaCadastro"
+          />
+        </div>
+<div class="container-fluid">
+
+  <div class="form-check form">
+    <input
+    class="form-check-input"
+    type="checkbox"
+    value=true
+    formControlName="homologacaoDireta"
+    checked
+    />
+    <label class="form-check" for="flexCheckChecked"> Homologação direta </label>
+
+  </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+<section>
+
+  <h5>Configurações De Usuario</h5>
+  <hr class="form-group col-sm-12 col-md-12" />
+</section>
+
+
+
+<div class="form-group col-sm-12 action-buttons">
+  <hr class="form-group col-sm-12 col-md-12" />
+  <a
+    class="btn btn-secondary float-left"
+    [routerLink]="['/usuario/dashboard']"
+    queryParamsHandling="preserve"
+    >Voltar</a
+  >
+
+
+
+
+  <button type="submit" class="btn btn-primary float-right">
+    Salvar
+  </button>
+</div>
+  </form>
+</div>
+

@@ -42,6 +42,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ClientesPendentesComponent } from './pages/clientes/clientes-pendentes/clientes-pendentes.component';
 import { ClientesPendentesViewComponent } from './pages/clientes/clientes-pendentes-view/clientes-pendentes-view.component';
 import { BotaoAdicionarComponent } from './components/botoes/botao-adicionar/botao-adicionar.component';
+import { ClientesBloqueadosViewComponent } from './pages/clientes/clientes-bloqueados-view/clientes-bloqueados-view.component';
+import { ClientesBloqueadosComponent } from './pages/clientes/clientes-bloqueados/clientes-bloqueados.component';
+import { PaginaDeConfiguracaoComponent } from './pages/parametros/pagina-de-configuracao/pagina-de-configuracao.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { BotaoAdicionarComponent } from './components/botoes/botao-adicionar/bot
     ClientesPendentesComponent,
     ClientesPendentesViewComponent,
     BotaoAdicionarComponent,
+    ClientesBloqueadosComponent,
+    ClientesBloqueadosViewComponent,
+    PaginaDeConfiguracaoComponent
   ],
   imports: [
     BrowserModule,

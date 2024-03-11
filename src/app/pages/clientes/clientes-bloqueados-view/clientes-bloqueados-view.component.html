@@ -1,6 +1,6 @@
 <div class="container">
   <div class="corpo">
-    <h2>Detalhes do Cliente</h2>
+    <h2>Detalhes de Clientes </h2>
 
     <table class="table table-sm">
       <tr>
@@ -64,20 +64,24 @@
     <div>
       <a
         class="btn btn-secondary float-left"
-        [routerLink]="['/cliente/pendentes']"
+        [routerLink]="['/cliente/bloqueados']"
         queryParamsHandling="preserve"
         >Voltar</a
       >
 
-      <a class="btn btn-danger float-left" queryParamsHandling="preserve"
-      (click)="this.chamarApiParaBloquear(cliente.id)"
+      <a
+        class="btn btn-danger float-left"
+        queryParamsHandling="preserve"
+        (click)="this.chamarApiParaBloquear(cliente.id)"
+        *ngIf="!clientebloqueado "
         >Situacão Bloqueado</a
       >
 
       <a
         class="btn btn-success float-left"
         queryParamsHandling="preserve"
-        (click)="this.chamarApiParadesbloquear(cliente.id)"
+        (click)="this.chamarApiParaDesbloquear(cliente.id)"
+        *ngIf="clientebloqueado "
         >Situação Normal</a
       >
     </div>

@@ -1,69 +1,84 @@
 <div class="containercustom">
-
-  <div class="card text-center mb-3" >
+  <div class="card text-center mb-3">
     <div class="card-header">
-
-      <p class="material-symbols-outlined">Person_check</p><br>
-    </div>
-    <div class="card-body"><p>
-
-      <span class="card-text" *ngIf="mostrarContador">{{contagemDePendentes}} </span><span>{{textoContador}}</span>
-    </p>
-      <br><br>
-      <a [routerLink]="['/cliente/pendentes']" class="btn btn-primary">Entrar</a>
-    </div>
-  </div>
-
-
-
-
-  <div class="card text-center mb-3" >
-    <div class="card-header">
-      <p class="material-symbols-outlined">manufacturing</p><br>
-
+      <p class="material-symbols-outlined">Person_check</p>
+      <br />
     </div>
     <div class="card-body">
-      <div class="card-title">
-
-      </div>
-      <p class="card-text">Ajuste os controles e parâmetros fundamentais para a aplicação.</p>
-<div class="card-footer">
-
-  <a href="#" class="btn btn-primary">Entrar</a>
-</div>
-
+      <p>
+        <span class="card-text" *ngIf="mostrarContadorPendentes"
+          >{{ contagemDePendentes }} </span
+        ><span>{{ textoContadorPendentes }}</span>
+      </p>
+      <br /><br />
+      <a [routerLink]="['/cliente/pendentes']" class="btn btn-primary"
+        >Entrar</a
+      >
     </div>
   </div>
 
-
-
- <div class="card text-center mb-3" >
-  <div class="card-header">
-
-    <p class="material-symbols-outlined">query_stats</p><br>
-  </div>
+  <div class="card text-center mb-3">
+    <div class="card-header">
+      <p class="material-symbols-outlined">Person_off</p>
+      <br />
+    </div>
     <div class="card-body">
-      <p class="card-text">Visualize números e relatórios essenciais para acompanhar o desempenho da aplicação em tempo real.</p>
+      <p>
+        <span class="card-text" *ngIf="mostrarContadorBloqueados"
+          >{{ contagemDeBloqueados }} </span
+        ><span>{{ textoContadorBloqueados }}</span>
+      </p>
+      <br /><br />
+      <a [routerLink]="['/cliente/bloqueados']" class="btn btn-primary"
+        >Entrar</a
+      >
+    </div>
+  </div>
+
+  <div class="card text-center mb-3">
+    <div class="card-header">
+      <p class="material-symbols-outlined">manufacturing</p>
+      <br />
+    </div>
+    <div class="card-body">
+      <div class="card-title"></div>
+      <p class="card-text">
+        Ajuste os controles e parâmetros fundamentais para a aplicação.
+      </p>
       <div class="card-footer">
-        <a href="#" class="btn btn-primary">Entrar</a>
-
+        <a [routerLink]="['/usuario/configuracao']" class="btn btn-primary">Entrar</a>
       </div>
     </div>
   </div>
 
-
-  <div class="card text-center mb-3" >
+  <div class="card text-center mb-3">
     <div class="card-header">
+      <p class="material-symbols-outlined">query_stats</p>
+      <br />
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        Visualize números e relatórios essenciais para acompanhar o desempenho
+        da aplicação em tempo real.
+      </p>
+      <div class="card-footer">
+        <a class="btn btn-primary">Entrar</a>
+      </div>
+    </div>
+  </div>
 
-      <p class="material-symbols-outlined">engineering</p><br>
+  <div class="card text-center mb-3">
+    <div class="card-header">
+      <p class="material-symbols-outlined">engineering</p>
+      <br />
     </div>
     <div class="card-body">
       <p class="card-text">Gerenciamento de Funcionários e Permissões.</p>
       <div class="card-footer">
-
-        <a [routerLink]="['/usuario/listagem']" class="btn btn-primary">Entrar</a>
+        <a [routerLink]="['/usuario/listagem']" class="btn btn-primary"
+          >Entrar</a
+        >
       </div>
+    </div>
   </div>
-
-
 </div>

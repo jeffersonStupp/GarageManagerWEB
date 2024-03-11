@@ -69,16 +69,16 @@
         >Voltar</a
       >
 
-      <a class="btn btn-danger float-left" queryParamsHandling="preserve"
-      (click)="this.chamarApiParaBloquear(cliente.id)"
-        >Situacão Bloqueado</a
-      >
 
       <a
-        class="btn btn-success float-left"
-        queryParamsHandling="preserve"
-        (click)="this.chamarApiParahomologar(cliente.id)"
-        >Situação Normal</a
+      class="btn btn-success float-left"
+      
+      (click)="this.chamarApiParahomologar(cliente.id)"
+      >Homologar</a
+      >
+      <a class="btn btn-danger float-left" queryParamsHandling="preserve"
+      (click)="this.confirmarExcluir(cliente.id)"
+        >Excluir</a
       >
     </div>
   </div>
