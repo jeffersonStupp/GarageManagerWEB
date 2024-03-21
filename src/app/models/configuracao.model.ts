@@ -1,4 +1,4 @@
-export default class configuracao {
+export default class Configuracao {
 id:number;
 homologacao:boolean;
 idadeMinimaCadastro:number;

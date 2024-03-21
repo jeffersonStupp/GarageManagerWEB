@@ -17,6 +17,8 @@ import { ClientesPendentesViewComponent } from './pages/clientes/clientes-penden
 import { ClientesBloqueadosComponent } from './pages/clientes/clientes-bloqueados/clientes-bloqueados.component';
 import { ClientesBloqueadosViewComponent } from './pages/clientes/clientes-bloqueados-view/clientes-bloqueados-view.component';
 import { PaginaDeConfiguracaoComponent } from './pages/parametros/pagina-de-configuracao/pagina-de-configuracao.component';
+import { ProdutosListagemComponent } from './pages/produtos/produtos-listagem/produtos-listagem.component';
+import { ProdutosCadastroComponent } from './pages/produtos/produtos-cadastro/produtos-cadastro.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/principal', pathMatch: 'full' },
@@ -54,6 +56,20 @@ const routes: Routes = [
 
         ],
       },
+      {
+        path: 'produto',
+        children: [
+          { path: 'listagem', component: ProdutosListagemComponent },
+          { path: 'cadastro', component: ProdutosCadastroComponent },
+          { path: 'cadastro/:id', component: ProdutosCadastroComponent },
+
+        ],
+      },
+
+
+
+
+
     ],
   },
 

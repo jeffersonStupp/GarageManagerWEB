@@ -45,6 +45,8 @@ import { BotaoAdicionarComponent } from './components/botoes/botao-adicionar/bot
 import { ClientesBloqueadosViewComponent } from './pages/clientes/clientes-bloqueados-view/clientes-bloqueados-view.component';
 import { ClientesBloqueadosComponent } from './pages/clientes/clientes-bloqueados/clientes-bloqueados.component';
 import { PaginaDeConfiguracaoComponent } from './pages/parametros/pagina-de-configuracao/pagina-de-configuracao.component';
+import { ProdutosCadastroComponent } from './pages/produtos/produtos-cadastro/produtos-cadastro.component';
+import { ProdutosListagemComponent } from './pages/produtos/produtos-listagem/produtos-listagem.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { PaginaDeConfiguracaoComponent } from './pages/parametros/pagina-de-conf
     BotaoAdicionarComponent,
     ClientesBloqueadosComponent,
     ClientesBloqueadosViewComponent,
-    PaginaDeConfiguracaoComponent
+    PaginaDeConfiguracaoComponent,
+    ProdutosCadastroComponent,
+    ProdutosListagemComponent,
   ],
   imports: [
     BrowserModule,

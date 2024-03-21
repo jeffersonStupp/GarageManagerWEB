@@ -1,0 +1,140 @@
+<div class="containercustom">
+  <h2 class="centralizartexto">Cadastro de Peças</h2>
+  <form
+    [formGroup]="this.formulario"
+    (ngSubmit)="this.submeterForm()"
+    novalidate
+    [ngClass]="{ submited: this.formSubmetido }"
+  >
+    <div class="row">
+
+      <hr class="form-group col-sm-12 col-md-12" />
+
+      <!-- codigo>> -->
+      <div class="form-group col-sm-2 col-md-2 col-lg-2">
+        <label class="form-control-label label-obrigatorio"
+          >Codigo</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Digite o codigo da peça"
+          formControlName="codigo"
+        />
+        <app-validator
+          [formSubmitted]="this.formSubmetido"
+          [errors]="this.formulario?.get('codigo')?.errors"
+        ></app-validator>
+      </div>
+      <!-- <<codigo -->
+
+      <!-- descricao>> -->
+      <div class="form-group col-sm-12 col-md-12 col-lg-10">
+        <label class="form-control-label label-obrigatorio">Descrição</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Digite a descrição"
+          formControlName="descricao"
+
+        />
+        <app-validator
+          [formSubmitted]="this.formSubmetido"
+          [errors]="this.formulario?.get('descricao')?.errors"
+        ></app-validator>
+      </div>
+      <!-- <<descricao -->
+
+      <!-- fabricante>> -->
+      <div class="form-group col-sm-4 col-md-4 col-lg-4">
+        <label class="form-control-label label-obrigatorio">Fabricante </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Digite o fabricante"
+          formControlName="fabricante"
+
+        />
+        <app-validator
+          [formSubmitted]="this.formSubmetido"
+          [errors]="this.formulario?.get('fabricante')?.errors"
+        ></app-validator>
+      </div>
+      <!-- <<fabricante -->
+
+      <!-- fornrcedor>> -->
+      <div class="form-group col-sm-4 col-md-4 col-lg-4">
+        <label class="form-control-label label-obrigatorio"
+          >Fornecedor
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Digite o nome do fornecedor"
+          formControlName="fornecedor"
+
+        />
+        <app-validator
+          [formSubmitted]="this.formSubmetido"
+          [errors]="this.formulario?.get('fornecedor')?.errors"
+        ></app-validator>
+      </div>
+      <!-- <<fornecedor -->
+
+ <!-- preco>> -->
+ <div class="form-group col-sm-4 col-md-4 col-lg-4">
+  <label class="form-control-label label-obrigatorio"
+    >Preço
+  </label>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Digite o preco"
+    formControlName="preco"
+
+  />
+  <app-validator
+    [formSubmitted]="this.formSubmetido"
+    [errors]="this.formulario?.get('preco')?.errors"
+  ></app-validator>
+</div>
+<!-- <<preco -->
+
+
+        <!-- garantia>> -->
+
+      <div class="form-group col-sm-4 col-md-4 col-lg-4">
+        <label class="form-control-label label-obrigatorio">Garantia</label>
+        <input
+            type="number"
+            class="form-control"
+            placeholder="Digite a garantia em meses"
+            formControlName="garantia"
+        />
+        <app-validator
+            [formSubmitted]="this.formSubmetido"
+            [errors]="this.formulario?.get('garantia')?.errors"
+            ></app-validator>
+          </div>
+
+
+        </div>
+        <!-- <<garantia -->
+
+
+
+      <!-- botoes>> -->
+      <div class="form-group col-sm-12 action-buttons">
+        <a
+          class="btn btn-secondary float-left"
+          (click)="this.voltar()"
+          queryParamsHandling="preserve"
+          >Voltar</a
+        >
+        <button type="submit" class="btn btn-primary float-right">
+          Salvar
+        </button>
+        <!-- <<botoes -->
+      </div>
+  </form>
+</div>
