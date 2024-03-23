@@ -1,10 +1,146 @@
-<!-- <div class="container fluid"> -->
+
   <div class="containercustom">
     <div class="centralizartexto">
       <h2>Listagem de Produtos</h2>
+
+
+      <div class="input-group mb-3">
+
+        <input
+  type="text"
+  class="form-control"
+  placeholder="Digite o produto"
+  formControlName="busca"
+  (input)="aplicarFiltro($event.target.value)"
+/>
+          
     </div>
 
     <table class="table table-striped">
+
+      <thead>
+        <tr>
+          <th></th><th></th>
+          <th scope="col">Codigo</th>
+          <th scope="col">Descrição</th>
+
+          <th scope="col">Fabricante</th>
+          <th scope="col">Fornecedor</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Garantia</th>
+
+
+
+          <th>
+
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of listaFiltrada">
+<td><span class="material-symbols-outlined"[routerLink]="['/produto/cadastro/', p.id]">
+  edit
+  </span></td>
+  <td><span class="material-symbols-outlined"*ngIf="tipoPerfilAdmin"(click)="this.confirmarExcluir(p.id)">
+    delete
+    </span></td>
+          <td>{{ p.codigo }}</td>
+          <td>{{ p. descricao }}</td>
+          <td>{{ p.fabricante  }}</td>
+          <td>{{ p.fornecedor }}</td>
+          <td>{{ p.preco | moneyFormat }}</td>
+          <td>{{ p.garantia  }}<span> meses</span></td>
+          <td><span class="material-symbols-outlined">
+            shopping_cart
+            </span></td>
+
+
+
+          <td>
+            <div class="botoes">
+
+
+
+
+
+
+
+            </div>
+
+
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="containercustom">
+    <div class="centralizartexto">
+      <h2>Listagem de Produtos</h2>
+
+
+      <div class="input-group mb-3">
+
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Digite o produto"
+          formControlName="busca"
+
+          />
+          <button class="btn btn-outline-success" type="button" id="button-addon2"><span id="pesquisa" class="material-symbols-outlined">
+            search
+            </span></button>
+    </div>
+
+    <table class="table table-striped">
+
       <thead>
         <tr>
           <th></th><th></th>
@@ -55,15 +191,9 @@
             </div>
 
 
-            <!-- <a
-              id="excluir"
-              class="btn btn-danger"
-              (click)="this.confirmarExcluir(c.id)"
-              >Excluir</a
-            > -->
+
           </td>
         </tr>
       </tbody>
     </table>
-  </div>
-
+  </div> -->
