@@ -30,7 +30,7 @@ export class ProdutosListagemComponent  implements OnInit {
       document.title = 'Lista de Produtos';
       this.tipoPerfilAdmin = this.autenticacaoService.tipoPerfilAdmin();
       this.obterProdutosApi();
-      console.log(this.listaProdutos)
+      
   }
   public obterProdutosApi() {
     this.produtoService.obterTodosProdutos().subscribe(

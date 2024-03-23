@@ -23,6 +23,7 @@ export class ClientesPendentesViewComponent implements OnInit {
 
     this.id = this.activateRouter.snapshot.params['id'];
     this.obterCliente();
+    
   }
   constructor(
     public activateRouter: ActivatedRoute,
@@ -52,7 +53,7 @@ export class ClientesPendentesViewComponent implements OnInit {
   public chamarApiParahomologar(id: number) {
     this.clienteservice.homologarCliente(this.cliente).subscribe(
       (resposta) => {
-        
+
         this.router.navigate(['usuario/dashboard']);
 
         this.cdr.detectChanges();
