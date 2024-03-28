@@ -2,6 +2,8 @@ export default class Produto {
   id: number;
   codigo: string;
   descricao: string;
+  grupo: string;
+  tipo: string;
   fabricante: string;
   fornecedor: string;
   preco: number;

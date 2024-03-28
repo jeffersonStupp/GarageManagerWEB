@@ -52,6 +52,8 @@ export class ProdutosCadastroComponent implements OnInit {
       id: [0],
       codigo: [null, [Validators.required]],
       descricao: [null, [Validators.required]],
+      grupo: [null, [Validators.required]],
+      tipo: [null, [Validators.required]],
       fabricante: [null],
       fornecedor: [null],
       preco: [null, [Validators.required]],
@@ -96,80 +98,23 @@ export class ProdutosCadastroComponent implements OnInit {
   }
   public chamarApiParaObterProdutoPorId(id: number): void {
     this.produtoservice.obterPorId(id).subscribe(
-        (resposta) => {
-            if (resposta != null) {
-                this.formulario.patchValue(resposta);
-
-            }
-        },
-        (exception) => {
-            let mensagemErro =
-                typeof exception?.error == 'string' ? exception?.error : '';
-            this.alertService.showToastrError('Erro na requisição', mensagemErro);
+      (resposta) => {
+        if (resposta != null) {
+          this.formulario.patchValue(resposta);
         }
+      },
+      (exception) => {
+        let mensagemErro =
+          typeof exception?.error == 'string' ? exception?.error : '';
+        this.alertService.showToastrError('Erro na requisição', mensagemErro);
+      }
     );
-
-
   }
-  public voltar(){
+  public voltar() {
     if (this.id == null) {
       this.router.navigate(['']);
-
     } else {
       this.router.navigate(['/produto/listagem']);
-
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

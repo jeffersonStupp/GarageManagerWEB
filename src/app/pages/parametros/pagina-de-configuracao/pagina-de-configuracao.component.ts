@@ -1,9 +1,11 @@
+import { Porcentagem } from './../../../pipes/porcentagem.pipe';
 import { ConfiguracaoService } from './../../../services/configuracao.service';
 import { AlertService } from '../../../services/alert.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import configuracao from 'src/app/models/configuracao.model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pagina-de-configuracao',
@@ -49,7 +51,10 @@ this.chamarApiAtualizar(config)
       id: [1],
       homologacaoDireta:[null],
       idadeMinimaCadastro:[null ,[]],
-      idadeMaximaCadastro:[null , []]
+      idadeMaximaCadastro:[null , []],
+      descontoPagamentoVista:[null],
+      margemPecas:[null,[]],
+      maoDeObra:[null , []]
 
     });
   }
@@ -59,6 +64,8 @@ this.chamarApiAtualizar(config)
         (resposta) => {
             if (resposta != null) {
                 this.formulario.patchValue(resposta);
+                
+
             }
         },
         (exception) => {

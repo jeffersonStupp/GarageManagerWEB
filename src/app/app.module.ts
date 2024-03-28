@@ -23,6 +23,7 @@ import { ValidatorComponent } from './components/validator/validator.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskModule } from 'ngx-mask';
 import { CpfPipe } from './pipes/cpf.pipe';
+import { Porcentagem } from './pipes/porcentagem.pipe';
 import { TelefonePipe } from './pipes/telefone.pipe';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { LoginComponent } from './pages/login/login.component';
@@ -64,6 +65,7 @@ import { ProdutosListagemComponent } from './pages/produtos/produtos-listagem/pr
     UsuarioCadastroComponent,
     DateTimeFormatPipe,
     ViewClienteComponent,
+    Porcentagem,
     MoneyFormatPipe,
     BotaoClienteViewComponent,
     BotaoEditarComponent,

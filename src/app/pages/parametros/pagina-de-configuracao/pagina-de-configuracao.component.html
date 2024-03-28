@@ -58,8 +58,59 @@
 
 <section>
 
-  <h5>Configurações De Usuario</h5>
-  <hr class="form-group col-sm-12 col-md-12" />
+  <h5>Configurações De Produto</h5>
+  <hr class="form-group col-sm-12 col-md-12 col-lg-12" />
+<div id=linha class="row">
+  <div id="produto" class="form-group col-sm-12 col-md-12 col-lg-3">
+    <label class="form-control-label label-obrigatorio"
+    >Porcentagem de desconto para pagamentos à vista: desconto oferecido para pagamentos integrais no momento da compra, incentivando essa modalidade de pagamento.</label
+    >
+    <input
+    type="number"
+    class="form-control"
+    placeholder="digite o valor do desconto em % aplicado em pagamento a vista"
+    formControlName="descontoPagamentoVista"
+    />
+    
+  </div>
+  <br>
+  <div id="produto" class="form-group col-sm-12 col-md-12 col-lg-3">
+    <label class="form-control-label label-obrigatorio"
+    >Porcentagem desejada para o lucro sobre as peças: usado para calcular o preço de venda, garantindo uma margem de lucro adequada.</label
+    >
+    <input
+    type="number"
+    class="form-control"
+    placeholder="digite o valor em % para a margem de lucro para a peças"
+    formControlName="margemPecas"
+
+    />
+
+  </div>
+  <br>
+  <div id="produto" class="form-group col-sm-12 col-md-12 col-lg-3">
+    <label class="form-control-label label-obrigatorio"
+    >Valor por hora do serviço prestado: utilizado para calcular o custo total com base no tempo gasto, garantindo uma compensação justa.</label
+   > <input
+    type="text"
+    class="form-control"
+    placeholder="digite o valor em % para a margem de lucro para a peças"
+    formControlName="maoDeObra"
+    [value]="this.formulario?.get('maoDeObra').value | moneyFormat"
+    />
+
+  </div>
+  <br>
+
+</div>
+
+
+
+
+
+
+
+
 </section>
 
 

@@ -5,6 +5,7 @@ import { AlertService } from 'src/app/services/alert.service';
 import { AutenticacaoService } from 'src/app/services/autenticacao.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-produtos-listagem',
   templateUrl: './produtos-listagem.component.html',
@@ -14,7 +15,6 @@ export class ProdutosListagemComponent  implements OnInit {
 
   public listaProdutos: Produto[] = [];
   public tipoPerfilAdmin: boolean = null;
-
   public termoBusca: string = '';
 
 
@@ -24,14 +24,26 @@ export class ProdutosListagemComponent  implements OnInit {
     public alertService: AlertService,
     public autenticacaoService: AutenticacaoService,
     public router: Router,
+
     ) {}
 
     public ngOnInit(): void {
       document.title = 'Lista de Produtos';
       this.tipoPerfilAdmin = this.autenticacaoService.tipoPerfilAdmin();
       this.obterProdutosApi();
-      
+
+
   }
+
+
+
+
+
+
+
+
+
+
   public obterProdutosApi() {
     this.produtoService.obterTodosProdutos().subscribe(
       (resposta) => {
@@ -98,9 +110,49 @@ export class ProdutosListagemComponent  implements OnInit {
   }
 
 
+  public aplicarFiltroSegmento(termo: string): void {
+    this.termoBusca = termo.toLowerCase();
+  }
+  get listaFiltradaSegmento(): Produto[] {
+    return this.listaProdutos.filter((produto: Produto) => {
+      return (
+        produto.codigo.toLowerCase().includes(this.termoBusca) ||
+        produto.descricao.toLowerCase().includes(this.termoBusca) ||
+        produto.fabricante.toLowerCase().includes(this.termoBusca) ||
+        produto.fornecedor.toLowerCase().includes(this.termoBusca)
+      );
+    });
+  }
+  
 
 
-}
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

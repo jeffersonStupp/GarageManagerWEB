@@ -13,4 +13,16 @@ section{margin-top: 40px;}
 .check{
   padding-left: 0;
 }
+#produto{
 
+
+padding: 16px;
+margin-left:auto;
+margin-right:auto;
+
+display: flex;
+
+}
+.material-symbols-outlined{
+  font-size: 30px;
+}

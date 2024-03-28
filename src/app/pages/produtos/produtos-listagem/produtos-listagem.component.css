@@ -52,7 +52,7 @@ table{
 
 
 
- 
+
   padding: .475rem .75rem;
   font-size: 1rem;
   font-weight: 400;
@@ -64,4 +64,10 @@ table{
   border-radius: 0 , 0;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+button{margin-top: 6px;
+margin-bottom: 6px;}
 
+.table 
+{
+  margin-top: 16px;
+}
