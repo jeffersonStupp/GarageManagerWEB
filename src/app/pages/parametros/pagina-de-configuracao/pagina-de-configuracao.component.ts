@@ -54,7 +54,42 @@ this.chamarApiAtualizar(config)
       idadeMaximaCadastro:[null , []],
       descontoPagamentoVista:[null],
       margemPecas:[null,[]],
-      maoDeObra:[null , []]
+      maoDeObra:[null , []],
+      taxaDeJuros:[null,[]],
+      LocalArquivoContratoDeServico:[null,[]],
+      nomeOficina:[null,[]],
+      numeroOficina:[null,[]],
+      ruaOficina:[null,[]],
+      bairroOficina:[null,[]],
+      cidadeOficina:[null,[]],
+      CepOficina:[null,[]],
+      estadoOficina:[null,[]],
+      cnpjOficina:[null,[]],
+      telefoneOficina:[null,[]],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     });
   }
@@ -64,7 +99,7 @@ this.chamarApiAtualizar(config)
         (resposta) => {
             if (resposta != null) {
                 this.formulario.patchValue(resposta);
-                
+
 
             }
         },
@@ -92,7 +127,25 @@ public chamarApiAtualizar(config: configuracao) {
     }
   );
 }
+public aoAlterarCep(): void {
+  let cep: string = this.formulario.controls['cep'].value;
 
+  if (cep.length == 8) {
+    this.chamarbuscacep(cep);
+  }
+}
 
+public chamarbuscacep(cep: string): void {
+  this.configuracaoService.buscarcep(cep).subscribe((resposta) => {
+    this.formulario.patchValue(resposta);
 
+    //alert(JSON.stringify(resposta));
+
+    this.formulario.controls['ruaOficina'].setValue(resposta.enderecoLogradouro);
+    this.formulario.controls['bairroOficina'].setValue(resposta.bairro);
+    this.formulario.controls['cidadeOficina'].setValue(resposta.localidade);
+    this.formulario.controls['bairroOficina'].setValue(resposta.bairro);
+    this.formulario.controls['estadoOficina'].setValue(resposta.uf);
+  });
+}
 }

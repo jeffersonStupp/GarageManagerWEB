@@ -82,7 +82,7 @@ export class ProdutosListagemComponent  implements OnInit {
   private chamarApiParaExcluir(id: number) {
     this.produtoService.excluir(id).subscribe(
       (resposta) => {
-        this.alertService.showToastrSuccess('O produto foi excluido');
+        this.alertService.showToastrWarning('O produto foi excluido');
         this.obterProdutosApi();
       },
       (exception) => {
@@ -123,7 +123,7 @@ export class ProdutosListagemComponent  implements OnInit {
       );
     });
   }
-  
+
 
 
 

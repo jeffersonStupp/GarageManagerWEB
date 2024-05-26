@@ -18,6 +18,8 @@ export class ConfiguracaoService {
   public alterar(configuracao:configuracao){
     return this.httpClient.put<configuracao>(this.urlbase + 'alterar', configuracao);
   }
-
+  public buscarcep(cep: string) {
+    return this.httpClient.get<any>(this.urlbase + 'buscacep/' + cep);
+  }
 
 }

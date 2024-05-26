@@ -187,8 +187,8 @@ export class AlertService {
     this.toastr.info(message ?? '', title, opt);
   }
 
-  showToastrWarning(message, title, options) {
+  showToastrWarning(title: string, message?: string, options = null) {
     let opt = AlertService.createOptionsForToaster(options);
-    this.toastr.warning(message, title, opt);
+    this.toastr.warning(message ?? '', title, opt);
   }
 }

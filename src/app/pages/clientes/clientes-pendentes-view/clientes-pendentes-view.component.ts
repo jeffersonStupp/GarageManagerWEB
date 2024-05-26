@@ -23,7 +23,7 @@ export class ClientesPendentesViewComponent implements OnInit {
 
     this.id = this.activateRouter.snapshot.params['id'];
     this.obterCliente();
-    
+
   }
   constructor(
     public activateRouter: ActivatedRoute,
@@ -73,7 +73,7 @@ export class ClientesPendentesViewComponent implements OnInit {
         this.router.navigate(['cliente/pendentes']);
 
         this.cdr.detectChanges();
-        this.alertService.showToastrSuccess('Homologação cancelada');
+        this.alertService.showToastrWarning('Homologação cancelada');
       },
       (exception) => {
         let mensagemErro =

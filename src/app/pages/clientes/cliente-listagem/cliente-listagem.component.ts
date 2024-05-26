@@ -27,7 +27,7 @@ export class ClienteListagemComponent implements OnInit {
     document.title = 'Lista de Clientes';
     this.tipoPerfilAdmin = this.autenticacaoService.tipoPerfilAdmin();
     this.obterClientesApi();
-   
+
 
   }
   public obterClientesApi() {
@@ -67,7 +67,7 @@ export class ClienteListagemComponent implements OnInit {
   private chamarApiParaExcluir(id: number) {
     this.clienteservice.excluir(id).subscribe(
       (resposta) => {
-        this.alertService.showToastrSuccess('O cliente foi excluido');
+        this.alertService.showToastrWarning('O cliente foi excluido');
         this.obterClientesApi();
       },
       (exception) => {
