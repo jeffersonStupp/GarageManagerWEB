@@ -1,136 +1,412 @@
 <div class="containercustom">
+
   <h2 class="centralizar-texto">Painel de Configuração</h2>
 
+
+
+
   <form
-  [formGroup]="this.formulario"
+    [formGroup]="this.formulario"
     (ngSubmit)="this.submeterForm()"
     novalidate
-    [ngClass]="{ submitted: this.formSubmetido }">
+    [ngClass]="{ submitted: this.formSubmetido }"
+  >
 
+  <p class="d-grid gap-2">
+    <button class="btn btn-light" id="colapsee" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <h5>Dados Da Oficina</h5>
+      </button>
 
-<section>
+      </p>
+      <div class="collapse" id="collapseExample">
+    <hr class="form-group col-sm-12 col-md-12" />
+
 
   <div class="row">
-    <h5>Configurações De Cadastro</h5>
-      <hr class="form-group col-sm-12 col-md-12" />
+    <!-- <h5>Dados Da Oficina</h5>
+    <hr class="form-group col-sm-12 col-md-12" /> -->
+
+
+    <div class="form-group col-sm-12 col-md-12 col-lg-6">
+      <label class="form-control-label label-obrigatorio"
+        >Razão Social</label
+      >
+      <input
+        type="text"
+       class="form-control"
+        formControlName="nomeOficina"
+      />
+      <app-validator
+        [formSubmitted]="this.formSubmetido"
+        [errors]="this.formulario?.get('nomeOficina')?.errors"
+      ></app-validator>
+    </div>
+
+
+    <div class="form-group col-sm-12 col-md-12 col-lg-6">
+      <label class="form-control-label label-obrigatorio">Cnpj</label>
+      <input
+        type="text"
+        class="form-control"
+
+        formControlName="cnpjOficina"
+        mask="00.000.000/0000-00"
+      />
+      <app-validator
+        [formSubmitted]="this.formSubmetido"
+        [errors]="this.formulario?.get('cnpjOficina')?.errors"
+      ></app-validator>
+    </div>
+
+
+    <div class="form-group col-sm-12 col-md-12 col-lg-6">
+      <label class="form-control-label label-obrigatorio"
+        >Telefone
+      </label>
+      <input
+        type="text"
+        class="form-control"
+
+        formControlName="telefoneOficina"
+        mask="(00) 0000-0000"
+      />
+      <app-validator
+        [formSubmitted]="this.formSubmetido"
+        [errors]="this.formulario?.get('telefoneOficina')?.errors"
+      ></app-validator>
+    </div>
+
+    <!-- email>> -->
+    <div class="form-group col-sm-12 col-md-12 col-lg-6">
+      <label class="form-control-label label-obrigatorio">E-mail</label>
+      <input
+        type="email"
+        class="form-control"
+
+        [value]="this.formulario.get('emailOficina').value"
+      />
+      <app-validator
+        [formSubmitted]="this.formSubmetido"
+        [errors]="this.formulario?.get('emailOficina')?.errors"
+      ></app-validator>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="d-grid gap-2">
+  <button class="btn btn-light" id="colapsee" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+    <h5>Endereço Da Oficina</h5>
+    </button>
+
+    </p>
+    <div class="collapse" id="collapseExample2">
+  <hr class="form-group col-sm-12 col-md-12" />
+
+<div class="row">
+
+
+    <!-- <h5>Endereço Da Oficina</h5>
+    <hr class="form-group col-sm-12 col-md-12" /> -->
+
+    <!-- >>cep -->
+    <div class="form-group col-sm-12 col-md-12 col-lg-6">
+      <label class="form-control-label">Cep</label>
+      <input
+        type="text"
+        class="form-control"
+
+        formControlName="cepOficina"
+        (ngModelChange)="this.aoAlterarCep()"
+        mask="00000-000"
+        [value]="this.formulario.get('cepOficina').value"
+      />
+    </div>
+    <!-- <<cep -->
+
+    <!-- >>rua -->
+    <div class="form-group col-sm-12 col-md-12 col-lg-6">
+      <label class="form-control-label label-obrigatorio">Rua</label>
+      <input
+        type="text"
+        class="form-control"
+
+        formControlName="ruaOficina"
+        [value]="this.formulario.get('ruaOficina').value"
+      />
+      <app-validator
+        [formSubmitted]="this.formSubmetido"
+        [errors]="this.formulario?.get('ruaOficina')?.errors"
+      ></app-validator>
+    </div>
+    <!-- <<rua -->
+
+    <!-- >>numero -->
+    <div class="form-group col-sm-12 col-md-12 col-lg-6">
+      <label class="form-control-label">Número</label>
+      <input
+        type="text"
+        onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+        class="form-control"
+        formControlName="numeroOficina"
+        [value]="this.formulario.get('numeroOficina').value"
+      />
+      <app-validator
+        [formSubmitted]="this.formSubmetido"
+        [errors]="this.formulario?.get('numero')?.errors"
+      ></app-validator>
+    </div>
+    <!-- <<numero -->
+
+    <!-- >>bairro -->
+    <div class="form-group col-sm-12 col-md-12 col-lg-6">
+      <label class="form-control-label label-obrigatorio">Bairro</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="bairroOficina"
+        [value]="this.formulario.get('bairroOficina').value"
+      />
+      <app-validator
+        [formSubmitted]="this.formSubmetido"
+        [errors]="this.formulario?.get('bairro')?.errors"
+      ></app-validator>
+    </div>
+    <!-- <<bairro -->
+
+    <!-- >>cidade -->
+    <div class="form-group col-sm-12 col-md-12 col-lg-6">
+      <label class="form-control-label label-obrigatorio">Cidade</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="cidadeOficina"
+        [value]="this.formulario.get('cidadeOficina').value"
+      />
+      <app-validator
+        [formSubmitted]="this.formSubmetido"
+        [errors]="this.formulario?.get('cidadeOficina')?.errors"
+      ></app-validator>
+    </div>
+    <!-- <<cidade -->
+
+    <!-- >>estado -->
+    <div class="form-group col-sm-12 col-md-12 col-lg-6">
+      <label class="form-control-label label-obrigatorio">Estado</label>
+      <select
+        formControlName="estado"
+        class="form-select"
+        aria-label="Default select example"
+        formControlName="estadoOficina"
+      >
+        <option selected>Escolha um estado</option>
+
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+      </select>
+    </div>
+
+  </div>   </div>
+
+
+
+
+
+  <p class="d-grid gap-2">
+    <button class="btn btn-light" id="colapsee" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+      <h5>Configurações De Cadastro</h5>
+      </button>
+
+      </p>
+      <div class="collapse" id="collapseExample3">
+        <hr class="form-group col-sm-12 col-md-12" />
+
+
+
+
+
+
+    <div class="row">
+      <!-- <h5>Configurações De Cadastro</h5>
+      <hr class="form-group col-sm-12 col-md-12" /> -->
       <div class="form-group col-sm-12 col-md-12 col-lg-6">
         <label class="form-control-label label-obrigatorio"
-        >Idade mínima permitida para cadastro </label
-        >
+          >Idade mínima permitida para cadastro
+        </label>
         <input
-        type="number"
-        class="form-control"
-        placeholder="Preencha a idade minima permitida"
-        formControlName="idadeMinimaCadastro"
+          type="number"
+          class="form-control"
+          placeholder="Preencha a idade minima permitida"
+          formControlName="idadeMinimaCadastro"
         />
       </div>
 
+
+
+
+
+
       <div class="form-group col-sm-12 col-md-12 col-lg-6">
-        <label class="form-control-label label-obrigatorio">Idade máxima permitida para cadastro</label>
+        <label class="form-control-label label-obrigatorio"
+          >Idade máxima permitida para cadastro</label
+        >
         <input
           type="number"
           class="form-control"
           placeholder="Preencha a idade máxima permitida"
           formControlName="idadeMaximaCadastro"
+        />
+      </div>
+      <div class="form-group col-sm-12 col-md-12 col-lg-6">
+        <label class="form-control-label label-obrigatorio"
+          >Idade máxima permitida para cadastro</label
+        >
+
+
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Preencha a idade máxima permitida"
+          formControlName="localArquivoContratoDeServico"
+        />
+      </div>
+
+
+
+      <div class="container-fluid">
+        <div class="form-check form">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value="true"
+            formControlName="homologacaoDireta"
+            checked
           />
-        </div>
-<div class="container-fluid">
-
-  <div class="form-check form">
-    <input
-    class="form-check-input"
-    type="checkbox"
-    value=true
-    formControlName="homologacaoDireta"
-    checked
-    />
-    <label class="form-check" for="flexCheckChecked"> Homologação direta </label>
-
-  </div>
-
+          <label class="form-check" for="flexCheckChecked">
+            Homologação direta
+          </label>
+          <p>
+            Ao marcar esta opção, o cadastro será aprovado automaticamente, sem
+            passar pela homologação de um administrador. Use esta funcionalidade
+            apenas quando tiver certeza de que todas as informações estão
+            corretas, pois a revisão administrativa será ignorada.
+          </p>
         </div>
       </div>
-    </section>
+    </div></div>
+
+    <p class="d-grid gap-2">
+      <button class="btn btn-light" id="colapsee" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample">
+        <h5>Configurações De Produto</h5>
+        </button>
+
+        </p>
+        <div class="collapse" id="collapseExample4">
+      <hr class="form-group col-sm-12 col-md-12" />
 
 
 
+    <!-- <h5>Configurações De Produto</h5> -->
+    <!-- <hr class="form-group col-sm-12 col-md-12 col-lg-12" /> -->
+    <div class="row">
+      <div id="produto" class="form-group col-sm-12 col-md-12 col-lg-3">
+        <label class="form-control-label label-obrigatorio"
+          >Porcentagem de desconto para pagamentos à vista: desconto oferecido
+          para pagamentos integrais no momento da compra, incentivando essa
+          modalidade de pagamento.</label
+        >
+        <input
+          id="mini"
+          type="number"
+          class="form-control"
+          placeholder="digite o valor do desconto em % aplicado em pagamento a vista"
+          min="1"
+          max="100"
+          formControlName="descontoPagamentoVista"
+          [value]="this.formulario?.get('descontoPagamentoVista').value"
+        />
+      </div>
 
-
-<section>
-
-  <h5>Configurações De Produto</h5>
-  <hr class="form-group col-sm-12 col-md-12 col-lg-12" />
-<div id=linha class="row">
-  <div id="produto" class="form-group col-sm-12 col-md-12 col-lg-3">
-    <label class="form-control-label label-obrigatorio"
-    >Porcentagem de desconto para pagamentos à vista: desconto oferecido para pagamentos integrais no momento da compra, incentivando essa modalidade de pagamento.</label
-    >
-    <input
-    type="number"
-    class="form-control"
-    placeholder="digite o valor do desconto em % aplicado em pagamento a vista"
-    formControlName="descontoPagamentoVista"
-    />
-    
-  </div>
-  <br>
-  <div id="produto" class="form-group col-sm-12 col-md-12 col-lg-3">
-    <label class="form-control-label label-obrigatorio"
-    >Porcentagem desejada para o lucro sobre as peças: usado para calcular o preço de venda, garantindo uma margem de lucro adequada.</label
-    >
-    <input
-    type="number"
-    class="form-control"
-    placeholder="digite o valor em % para a margem de lucro para a peças"
-    formControlName="margemPecas"
-
-    />
-
-  </div>
-  <br>
-  <div id="produto" class="form-group col-sm-12 col-md-12 col-lg-3">
-    <label class="form-control-label label-obrigatorio"
-    >Valor por hora do serviço prestado: utilizado para calcular o custo total com base no tempo gasto, garantindo uma compensação justa.</label
-   > <input
-    type="text"
-    class="form-control"
-    placeholder="digite o valor em % para a margem de lucro para a peças"
-    formControlName="maoDeObra"
-    [value]="this.formulario?.get('maoDeObra').value | moneyFormat"
-    />
-
-  </div>
-  <br>
-
-</div>
-
-
-
-
-
-
-
-
-</section>
+      <div class="form-group col-sm-12 col-md-12 col-lg-3">
+        <label class="form-control-label label-obrigatorio"
+          >Porcentagem desejada para o lucro sobre as peças: usado para calcular
+          o preço de venda, garantindo uma margem de lucro adequada.</label
+        >
+        <input
+          id="mini"
+          type="number"
+          class="form-control"
+          min="1"
+          max="100"
+          placeholder="digite o valor em % para a margem de lucro para a peças"
+          formControlName="margemPecas"
+          [value]="this.formulario?.get('margemPecas').value"
+        />
+      </div>
+      <br />
+      <div class="form-group col-sm-12 col-md-12 col-lg-3">
+        <label class="form-control-label label-obrigatorio"
+          >Valor por hora do serviço prestado: utilizado para calcular o custo
+          total com base no tempo gasto, garantindo uma compensação
+          justa.</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          placeholder="digite o valor em % para a margem de lucro para a peças"
+          formControlName="maoDeObra"
+          [value]="this.formulario?.get('maoDeObra').value | moneyFormat"
+        />
+      </div></div></div>
+      <br />
 
 
 
-<div class="form-group col-sm-12 action-buttons">
-  <hr class="form-group col-sm-12 col-md-12" />
-  <a
+ <hr class="form-group col-sm-12 col-md-12 col-lg-12" />
+     <a
     class="btn btn-secondary float-left"
-    [routerLink]="['/usuario/dashboard']"
-    queryParamsHandling="preserve"
-    >Voltar</a
-  >
-
-
-
-
-  <button type="submit" class="btn btn-primary float-right">
-    Salvar
-  </button>
-</div>
+  [routerLink]="['/usuario/dashboard']"
+queryParamsHandling="preserve"
+>Voltar</a
+>
+<button type="submit" class="btn btn-primary float-right">Salvar</button>
   </form>
 </div>
 

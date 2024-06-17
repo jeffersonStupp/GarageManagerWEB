@@ -8,21 +8,21 @@
 }
 hr{
   border-top: 2px solid rgb(0, 0, 0);}
-section{margin-top: 40px;}
 
-.form-check-input{
 
-margin-right: none;
-}
-#linha {
+.row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
+  align-items:end;
+  margin: auto;
+  justify-content: space-between;
+  
 }
 
 .form-group {
   padding: 16px;
   box-sizing: border-box;
-  margin-bottom: 16px;
+
 }
 
 .col-sm-12 {
@@ -43,5 +43,50 @@ margin-right: none;
 .form-control {
   width: 100%;
 }
+#mini{
+  width:60px
+
+}
 
 
+
+
+select  {
+  color: bbb8b8;
+}
+#colapse{
+  width: 100%;
+  background-color: #bbb8b8;
+}
+#colapse:hover{
+  box-shadow: -1px 3px 8px   rgb(73, 75, 75);
+
+}
+h5
+{color:black;
+  text-decoration: none;
+}
+.btn-light{
+  width: 100%;
+  background-color: #bbb8b8;
+  /* border-radius: 8px;
+  background: #bbb8b8;
+  text-align: center;
+  align-items: center; */
+
+}
+
+.btn-light:hover{
+  width: 100%;
+  background-color: #bbb8b8;
+  box-shadow: -1px 3px 8px   rgb(73, 75, 75);
+  /* border-radius: 8px;
+  background: #bbb8b8;
+  text-align: center;
+  align-items: center; */
+
+}
+.btn-primary , .btn-secondary
+{
+  margin-bottom: 90px;
+}

@@ -53,10 +53,10 @@ this.chamarApiAtualizar(config)
       idadeMinimaCadastro:[null ,[]],
       idadeMaximaCadastro:[null , []],
       descontoPagamentoVista:[null],
+      taxaDeJuros:[null,[]],
       margemPecas:[null,[]],
       maoDeObra:[null , []],
-      taxaDeJuros:[null,[]],
-      LocalArquivoContratoDeServico:[null,[]],
+      localArquivoContratoDeServico:[null,[]],
       nomeOficina:[null,[]],
       numeroOficina:[null,[]],
       ruaOficina:[null,[]],
@@ -66,31 +66,7 @@ this.chamarApiAtualizar(config)
       estadoOficina:[null,[]],
       cnpjOficina:[null,[]],
       telefoneOficina:[null,[]],
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      emailOficina:[null,[]]
     });
   }
 

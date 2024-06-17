@@ -1,0 +1,20 @@
+.centralizartexto{
+  text-align: center;
+}
+hr{
+  border-top: 2px solid rgb(0, 0, 0);
+}
+select  {
+  color: bbb8b8;
+}
+#colapse{
+  width: 100%;
+  background-color: #bbb8b8;
+}
+#colapse:hover{
+  box-shadow: -1px 3px 8px   rgb(73, 75, 75);
+
+}
+
+
+
