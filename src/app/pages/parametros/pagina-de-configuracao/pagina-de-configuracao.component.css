@@ -11,19 +11,37 @@ hr{
 section{margin-top: 40px;}
 
 .form-check-input{
- font-size: 20px;
+
 margin-right: none;
 }
-#produto{
-
-
-padding: 16px;
-margin-left:auto;
-margin-right:auto;
-
-display: flex;
-
+#linha {
+  display: flex;
+  flex-wrap: wrap;
 }
-.material-symbols-outlined{
-  font-size: 30px;
+
+.form-group {
+  padding: 16px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
 }
+
+.col-sm-12 {
+  flex: 0 0 100%;
+}
+
+.col-md-4 {
+  flex: 0 0 33.3333%;
+}
+
+.form-control-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+
+
+.form-control {
+  width: 100%;
+}
+
+

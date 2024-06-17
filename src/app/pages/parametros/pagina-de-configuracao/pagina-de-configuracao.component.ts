@@ -62,7 +62,7 @@ this.chamarApiAtualizar(config)
       ruaOficina:[null,[]],
       bairroOficina:[null,[]],
       cidadeOficina:[null,[]],
-      CepOficina:[null,[]],
+      cepOficina:[null,[]],
       estadoOficina:[null,[]],
       cnpjOficina:[null,[]],
       telefoneOficina:[null,[]],
@@ -128,7 +128,7 @@ public chamarApiAtualizar(config: configuracao) {
   );
 }
 public aoAlterarCep(): void {
-  let cep: string = this.formulario.controls['cep'].value;
+  let cep: string = this.formulario.controls['cepOficina'].value;
 
   if (cep.length == 8) {
     this.chamarbuscacep(cep);
